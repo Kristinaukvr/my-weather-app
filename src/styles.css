@@ -8,11 +8,11 @@
 .currentDaydata {
   padding: 0 0 30px 0;
 }
-.container {
+.weather-app {
   border: solid;
   border-width: medium;
-  max-width: 500px;
-  padding-bottom: 30px;
+  max-width: 550px;
+  padding: 20px;
   margin: 20px auto;
 }
 .units {
