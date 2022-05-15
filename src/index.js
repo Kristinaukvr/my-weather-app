@@ -1,20 +1,17 @@
-function formatDate(dateTime) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  let day = days[currentDate.getDay()];
-  let date = currentDate.getDate();
-  let hours = currentDate.getHours();
+  let day = days[date.getDay()];
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = currentDate.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
   return `${day}, ${hours}:${minutes}`;
 }
-
-let currentDateInput = document.querySelector("#date-time");
-let currentDate = new Date();
 
 function showWeatherCondition(response) {
   console.log(response);
@@ -25,6 +22,9 @@ function showWeatherCondition(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#weather-condition").innerHTML =
     response.data.weather[0].main;
+  document.querySelector("#date-time").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
 }
 
 function search(city) {
@@ -44,6 +44,7 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-currentDateInput.innerHTML = formatDate(currentDate);
+//let currentDateInput = document.querySelector("#date-time");
+//currentDateInput.innerHTML = formatDate(response.data.dt * 1000);
 
 search("New YorK");
