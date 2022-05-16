@@ -16,93 +16,52 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-      <form class="cityForm" id="search-form">
-				<input type="text" placeholder="Enter City" autocomplete="off" id="form-input"
-				/>
-        <input type="submit" value="Search"/>
-      </form>
-      <div class="row">
-         <div class="col-6"><span class="weather-icon"><img src="https://ssl.gstatic.com/onebox/weather/64/rain.png" alt="weather-icon" id="icon"/></span><span class="curren-temperature" id="temperature"></span><span class="units">
-					<id="celsius-link">°C | <a href="#">F</a>
-					</span></div>
-        <div class="col-6">
-          <h2 id="city"></h2>
-          <ul class="current-day-data">
-            <li id="date-time">Thursday 2:00 PM </li>
-            <li>Condition: <span id="weather-condition">0</span></li>
-            <li>Humidity: <span id="humidity">0</span>%</li>
-            </ul>
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form class="cityForm" id="search-form">
+            <input
+              type="text"
+              placeholder="Enter City"
+              autocomplete="off"
+              id="form-input"
+            />
+            <input type="submit" value="Search" />
+          </form>
+          <div class="row">
+            <div class="col-6">
+              <span class="weather-icon"
+                ><img
+                  src="https://ssl.gstatic.com/onebox/weather/64/rain.png"
+                  alt="weather-icon"
+                  id="icon" /></span
+              ><span class="curren-temperature" id="temperature"></span
+              ><span class="units">
+                <a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">F</a>
+              </span>
+            </div>
+            <div class="col-6">
+              <h2 id="city"></h2>
+              <ul class="current-day-data">
+                <li id="date-time">Thursday 2:00 PM</li>
+                <li>Condition: <span id="weather-condition">0</span></li>
+                <li>Humidity: <span id="humidity">0</span>%</li>
+              </ul>
+            </div>
+          </div>
         </div>
+        <p class="open-source">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://app.netlify.com/sites/startling-blancmange-df5e38/overview"
+            >Open Source Code</a
+          >
+          by Kristina Robinson
+        </p>
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="thu">
-            <div class="day"><h4>Thu</h4></div>
-            <div class="emoji">🌤</div>
-            <div class="temperature">26℃</div>
-          </div>
-        </div>
+    </div>
 
-        <div class="col">
-          <div class="fri">
-            <div class="day"><h4>Fri</h4></div>
-            <div class="emoji">🌧</div>
-            <div class="temperature">25℃</div>
-          </div>
-        </div>
-
-         <div class="col">
-          <div class="Sat">
-            <div class="day"><h4>Sat</h4></div>
-            <div class="emoji">⛈</div>
-            <div class="temperature">26℃</div>
-          </div>
-        </div>
-
-         <div class="col">
-          <div class="Sun">
-            <div class="day"><h4>Sun</h4></div>
-            <div class="emoji">☀️</div>
-            <div class="temperature">28℃</div>
-          </div>
-        </div>
-
-         <div class="col">
-          <div class="Mon">
-            <div class="day"><h4>Mon</h4></div>
-            <div class="emoji">☀️</div>
-            <div class="temperature">29℃</div>
-          </div>
-        </div>
-
-         <div class="col">
-          <div class="tue">
-            <div class="day"><h4>Tue</h4></div>
-            <div class="emoji">⛅️</div>
-            <div class="temperature">28℃</div>
-          </div>
-        </div>
-
-         <div class="col">
-          <div class="Wed">
-            <div class="day"><h4>Wed</h4></div>
-            <div class="emoji">🌤</div>
-            <div class="temperature">29℃</div>
-          </div>
-        </div>
-      </div>
-       <p class="open-source"><a target="_blank" rel="noopener noreferrer" href="https://app.netlify.com/sites/startling-blancmange-df5e38/overview">Open Source Code</a> by Kristina Robinson</p> 
-    
-      </div>
-
-          
- 
-    
-
-
-    
-  
-    <script src="src/index.js" ></script>
+    <script src="src/index.js"></script>
   </body>
 </html>

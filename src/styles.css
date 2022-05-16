@@ -6,12 +6,16 @@
   padding: 30px 0 30px 0;
 }
 
+.weather-app-wrapper {
+  max-width: 550px;
+  margin: 20px auto;
+}
+
 .weather-app {
   border: solid;
   border-width: medium;
-  max-width: 550px;
+
   padding: 20px;
-  margin: 20px auto;
 }
 .units {
   font-size: 15px;
@@ -29,4 +33,14 @@
   font-style: italic;
   font-size: 12px;
   margin-top: 15px;
+  max-width: 550px;
+}
+#celsius-link {
+  color: black;
+  text-decoration: none;
+}
+
+#fahrenheit-link {
+  color: black;
+  text-decoration: none;
 }

@@ -17,9 +17,9 @@ function showWeatherCondition(response) {
   console.log(response);
   let iconElement = document.querySelector("#icon");
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsiusTemperature = response.data.main.temp;
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#weather-condition").innerHTML =
     response.data.weather[0].main;
@@ -46,10 +46,29 @@ function handleSubmit(event) {
   search(city);
 }
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  document.querySelector("#temperature").innerHTML = Math.round(
+    FahrenheitTemperature
+  );
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-//let currentDateInput = document.querySelector("#date-time");
-//currentDateInput.innerHTML = formatDate(response.data.dt * 1000);
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("New YorK");
