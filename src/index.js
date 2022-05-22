@@ -13,29 +13,42 @@ function formatDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let day = date.getDay();
+
+  return days[day];
+}
+
 function displayForecast(responce) {
-  console.log(responce.data.daily);
+  let forecast = responce.data.daily;
+  console.log(forecast);
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
                 <div class="forecast-date">
-                  ${day}
+                  ${formatDay(forecastDay.dt)}
                   </div>
-                <img src="https://ssl.gstatic.com/onebox/weather/64/rain.png" alt="weather-icon" width="36"
+                <img src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png" alt="weather-icon" width="36"
                 />
                 <div class="forecast-temperature">
                   <span class="forecast-temperature-max">
-                    18
+                    ${Math.round(forecastDay.temp.max)}
                     </span>
                      <span class="forecast-temperature-min">
-                    12
+                    ${Math.round(forecastDay.temp.min)}
                     </span>
                   </div>
               </div>
             `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
